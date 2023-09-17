@@ -48,11 +48,11 @@ h5 {
 
 /* New styles for the prediction box */
 .prediction-box {
-  background-color: #039be5;
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  font-weight: bold;
+  border: 2px solid #FF9800;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 /* Color for fire danger */

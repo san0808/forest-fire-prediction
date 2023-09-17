@@ -23,26 +23,60 @@
             <br><br>
             <div class="card">
                 <h4 class="center">Predict the Probability of Forest Fire Occurrence</h4>
-                <form action='/predict' method="POST">
-                    <div class="input-field">
-                        <i class="material-icons prefix">wb_sunny</i>
-                        <input id="temperature" name="Temperature" type="number" class="validate">
-                        <label for="temperature">Temperature (°C)</label>
+                    <div class="row">
+                      <form action='/predict' method="post" class="col s12">
+                        <div class="row">
+                          <div class="input-field col s4">
+                            <input placeholder="Area" name="area" id="area" type="text" class="validate" required>
+                            <label for="area">Area</label>
+                          </div>                          
+                          <div class="input-field col s4">
+                            <input placeholder="Temperature in Celsius" name="temperature" id="temperature" type="text" class="validate" required>
+                            <label for="temperature">Temperature (°C)</label>
+                          </div>
+                          <div class="input-field col s4">
+                            <input id="oxygen" name="oxygen" placeholder="Oxygen content in ppm" type="text" class="validate" required>
+                            <label for="oxygen">Oxygen (ppm)</label>
+                          </div>
+                          <div class="input-field col s4">
+                            <input id="humidity" name="humidity" placeholder="Humidity %" type="text" class="validate" required>
+                            <label for="humidity">Humidity (%)</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s4">
+                            <input id="wind_speed" name="wind_speed" placeholder="Wind Speed" type="text" class="validate" required>
+                            <label for="wind_speed">Wind Speed</label>
+                          </div>
+                          <div class="input-field col s4">
+                            <input id="vegetation_density" name="vegetation_density" placeholder="Vegetation Density" type="text" class="validate" required>
+                            <label for="vegetation_density">Vegetation Density</label>
+                          </div>
+                          <div class="input-field col s4">
+                            <select name="proximity_to_water" id="proximity_to_water" required>
+                              <option value="" disabled selected>Select Proximity to Water</option>
+                              <option value="Near">Near</option>
+                              <option value="Far">Far</option>
+                            </select>
+                            <label for="proximity_to_water">Proximity to Water</label>
+                          </div>
+                          <div class="input-field col s4">
+                            <select name="soil_type" id="soil_type" required>
+                              <option value="" disabled selected>Select Soil Type</option>
+                              <option value="Sandy">Sandy</option>
+                              <option value="Loamy">Loamy</option>
+                              <option value="Clayey">Clayey</option>
+                              <!-- Add more soil types as needed -->
+                            </select>
+                            <label for="soil_type">Soil Type</label>
+                          </div>
+                        </div>
+                        <div class="row center">
+                          <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+                        </div>
+                      </form>
                     </div>
-                    <div class="input-field">
-                        <i class="material-icons prefix">waves</i>
-                        <input id="oxygen" name="Oxygen" type="number" class="validate">
-                        <label for="oxygen">Oxygen (%)</label>
-                    </div>
-                    <div class="input-field">
-                        <i class="material-icons prefix">opacity</i>
-                        <input id="humidity" name="Humidity" type="number" class="validate">
-                        <label for="humidity">Humidity (%)</label>
-                    </div>
-                    <div class="center">
-                        <button type="submit" class="btn waves-effect waves-light orange darken-3">Predict Probability</button>
-                    </div>
-                </form>
+                  
             </div>
             <br>
             <div class="prediction-box center {{ prediction_class }}">
@@ -56,6 +90,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./static/js/init.js"></script>
+    <script>
+      // Initialize Materialize components
+      $(document).ready(function(){
+        $('select').formSelect();
+      });
+    </script>
+    
 </body>
 </html>
 
