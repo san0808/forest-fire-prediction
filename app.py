@@ -9,10 +9,7 @@ app = Flask(__name__)
 with open('best_model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
-<<<<<<< Updated upstream
-=======
 dummy_data = pd.read_csv("Synthetic_Forest_fire_dataset.csv")
->>>>>>> Stashed changes
 
 @app.route('/')
 def hello_world():
