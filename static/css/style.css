@@ -1,68 +1,105 @@
+/* Add this CSS in your style.css file or in a <style> tag in the head of your HTML file */
+
+/* Style the body and container */
 body {
-  background-color: #f5f5f5;
+  background-color: #f0f0f0;
   font-family: Arial, sans-serif;
 }
 
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.container {
+  margin-top: 20px;
+}
+
+/* Style the navigation bar */
+nav {
+  background-color: #4caf50;
 }
 
 .nav-wrapper {
-  background-color: #039be5; /* Match the navbar color */
+  padding-left: 20px;
 }
 
 .brand-logo {
   font-size: 24px;
+  padding: 0 10px;
 }
 
-.btn {
-  background-color: #FFA500;
-  font-weight: bold;
-}
-
-.btn:hover {
-  background-color: #FF8C00;
-}
-
-.input-field input[type=number]:focus + label,
-.input-field input[type=number]:valid + label {
-  color: #FFA500;
-}
-
-.input-field input[type=number]:focus {
-  border-bottom: 1px solid #FFA500;
-  box-shadow: 0 1px 0 0 #FFA500;
-}
-
-/* Match the prediction box background color
-h5 {
-  background-color: #039be5;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-} */
-
-/* New styles for the prediction box */
-.prediction-box {
-  background-color: #039be5;
-  color: #fff;
-  padding: 20px;
+/* Style the card */
+.card {
   border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+/* Style the form elements */
+.input-field {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Style the button */
+.btn {
+  background-color: #ff5722;
+  color: #fff;
   font-weight: bold;
 }
 
-/* Color for fire danger */
-.prediction-danger {
-  background-color: #f44336; /* Red */
+/* Style the prediction and error boxes */
+.prediction-box, .error-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
 }
 
-/* Color for safe prediction */
-.prediction-safe {
-  background-color: #4CAF50; /* Green */
+/* Center-align text */
+.center-align {
+  text-align: center;
 }
+
+/* Style the labels */
+label {
+  font-weight: bold;
+}
+
+/* Style the select boxes */
+.select-wrapper {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+/* Style the select arrow icon */
+.select-wrapper .caret {
+  color: #000;
+  right: 10px;
+  top: calc(50% - 8px);
+}
+
+/* Adjust the spacing for small screens */
+@media screen and (max-width: 600px) {
+  .container {
+      margin-top: 10px;
+  }
+
+  .input-field {
+      margin-bottom: 10px;
+  }
+}
+
+
+
 
 
