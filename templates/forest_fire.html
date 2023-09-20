@@ -9,6 +9,26 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="./static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+    <!-- Inline CSS -->
+    <style>
+        /* Add any custom inline styles here */
+        .prediction-box {
+            padding: 20px;
+            margin: 10px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .error-box {
+            padding: 20px;
+            margin: 10px;
+            border: 2px solid #ff6f61;
+            border-radius: 8px;
+            background-color: #fff5f4;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,65 +43,71 @@
             <br><br>
             <div class="card">
                 <h4 class="center">Predict the Probability of Forest Fire Occurrence</h4>
-                    <div class="row">
-                      <form action='/predict' method="post" class="col s12">
+                <div class="row">
+                    <form action='/predict' method="post" class="col s12">
                         <div class="row">
-                          <div class="input-field col s4">
-                            <input placeholder="Area" name="area" id="area" type="text" class="validate" required>
-                            <label for="area">Area</label>
-                          </div>                          
-                          <div class="input-field col s4">
-                            <input placeholder="Temperature in Celsius" name="temperature" id="temperature" type="text" class="validate" required>
-                            <label for="temperature">Temperature (°C)</label>
-                          </div>
-                          <div class="input-field col s4">
-                            <input id="oxygen" name="oxygen" placeholder="Oxygen content in ppm" type="text" class="validate" required>
-                            <label for="oxygen">Oxygen (ppm)</label>
-                          </div>
-                          <div class="input-field col s4">
-                            <input id="humidity" name="humidity" placeholder="Humidity %" type="text" class="validate" required>
-                            <label for="humidity">Humidity (%)</label>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="input-field col s4">
-                            <input id="wind_speed" name="wind_speed" placeholder="Wind Speed" type="text" class="validate" required>
-                            <label for="wind_speed">Wind Speed</label>
-                          </div>
-                          <div class="input-field col s4">
-                            <input id="vegetation_density" name="vegetation_density" placeholder="Vegetation Density" type="text" class="validate" required>
-                            <label for="vegetation_density">Vegetation Density</label>
-                          </div>
-                          <div class="input-field col s4">
-                            <select name="proximity_to_water" id="proximity_to_water" required>
-                              <option value="" disabled selected>Select Proximity to Water</option>
-                              <option value="Near">Near</option>
-                              <option value="Far">Far</option>
-                            </select>
-                            <label for="proximity_to_water">Proximity to Water</label>
-                          </div>
-                          <div class="input-field col s4">
-                            <select name="soil_type" id="soil_type" required>
-                              <option value="" disabled selected>Select Soil Type</option>
-                              <option value="Sandy">Sandy</option>
-                              <option value="Loamy">Loamy</option>
-                              <option value="Clayey">Clayey</option>
-                              <!-- Add more soil types as needed -->
-                            </select>
-                            <label for="soil_type">Soil Type</label>
-                          </div>
+                            <!-- Adjusted input field sizes for better alignment -->
+                            <div class="input-field col s6 m4">
+                                <input placeholder="Area" name="area" id="area" type="text" class="validate" required>
+                                <label for="area">Area</label>
+                            </div>                          
+                            <div class="input-field col s6 m4">
+                                <input placeholder="Temperature in Celsius" name="temperature" id="temperature" type="text" class="validate" required>
+                                <label for="temperature">Temperature (°C)</label>
+                            </div>
+                            <div class="input-field col s6 m4">
+                                <input id="oxygen" name="oxygen" placeholder="Oxygen content in ppm" type="text" class="validate" required>
+                                <label for="oxygen">Oxygen (ppm)</label>
+                            </div>
+                            <!-- Adjusted input field sizes for better alignment -->
+                            <div class="input-field col s6 m4">
+                                <input id="humidity" name="humidity" placeholder="Humidity %" type="text" class="validate" required>
+                                <label for="humidity">Humidity (%)</label>
+                            </div>
+                            <div class="input-field col s6 m4">
+                                <input id="wind_speed" name="wind_speed" placeholder="Wind Speed" type="text" class="validate" required>
+                                <label for="wind_speed">Wind Speed</label>
+                            </div>
+                            <div class="input-field col s6 m4">
+                                <input id="vegetation_density" name="vegetation_density" placeholder="Vegetation Density" type="text" class="validate" required>
+                                <label for="vegetation_density">Vegetation Density</label>
+                            </div>
+                            <div class="input-field col s12 m6 l4">
+                                <select name="proximity_to_water" id="proximity_to_water" required>
+                                    <option value="" disabled selected>Select Proximity to Water</option>
+                                    <option value="Near">Near</option>
+                                    <option value="Far">Far</option>
+                                </select>
+                                <label for="proximity_to_water">Proximity to Water</label>
+                            </div>
+                            <div class="input-field col s12 m6 l4">
+                                <select name="soil_type" id="soil_type" required>
+                                    <option value="" disabled selected>Select Soil Type</option>
+                                    <option value="Sandy">Sandy</option>
+                                    <option value="Loamy">Loamy</option>
+                                    <option value="Clayey">Clayey</option>
+                                    <!-- Add more soil types as needed -->
+                                </select>
+                                <label for="soil_type">Soil Type</label>
+                            </div>
                         </div>
                         <div class="row center">
-                          <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+                            <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
                         </div>
-                      </form>
-                    </div>
-                  
+                    </form>
+                </div>
             </div>
             <br>
+            
             <div class="prediction-box center {{ prediction_class }}">
-                <h5>{{ pred }}</h5>
-            </div>            
+                <h5>{{ prediction }}</h5>
+            </div>
+
+            {% if error %}
+            <div class="error-box center">
+                <h5>{{ error }}</h5>
+            </div>
+            {% endif %}            
             <br>
         </div>
     </div>
@@ -91,14 +117,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./static/js/init.js"></script>
     <script>
-      // Initialize Materialize components
-      $(document).ready(function(){
-        $('select').formSelect();
-      });
+        // Initialize Materialize components
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
     </script>
-    
 </body>
 </html>
+
 
 
 
