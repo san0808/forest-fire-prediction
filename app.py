@@ -6,6 +6,10 @@ app = Flask(__name__)
 
 model = pickle.load(open('model.pkl', 'rb'))
 
+<<<<<<< Updated upstream
+=======
+dummy_data = pd.read_csv("Synthetic_Forest_fire_dataset.csv")
+>>>>>>> Stashed changes
 
 @app.route('/')
 def hello_world():
