@@ -1,6 +1,6 @@
 # Forest Fire Detection Project
 
-![download](https://github.com/san0808/forest-fire-prediction/assets/72181610/92c63ae2-452c-40c2-9321-4a28070fc6fd)
+![forest-fire](https://github.com/san0808/forest-fire-prediction/assets/72181610/e1224cb2-950f-4eca-9229-de4b88b7dc24)
 
 ## Table of Contents
 - [Project Overview](#project-overview)
